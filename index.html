@@ -570,7 +570,7 @@
         <h2>Let's Build Your Automation.</h2>
         <p>Have a process you want to automate? Tell me about it — I'll analyze your workflow and suggest the best n8n solution for your business.</p>
         <div class="c-links">
-          <a href="mailto:samisarker48@gmail.com" class="c-link"><span>✉</span> samisarker48@gmail.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=samisarker48@gmail.com" target="_blank" class="c-link"><span>✉</span> samisarker48@gmail.com</a>
           <a href="https://t.me/Abdus_sami_n8n" class="c-link"><span>✈</span> Telegram: @Abdus_sami_n8n</a>
           <a href="https://wa.me/8801745764670" class="c-link"><span>📞</span> WhatsApp: +880 1745-764670</a>
           <a href="https://www.facebook.com/profile.php?id=61580202465920" class="c-link"><span>🔗</span> Facebook Profile</a>
@@ -580,23 +580,65 @@
         <div class="c-form">
           <div class="f-group">
             <label class="f-label">Your Name</label>
-            <input type="text" class="f-input" placeholder="e.g. John Smith">
+            <input id="f-name" type="text" class="f-input" placeholder="e.g. John Smith">
           </div>
           <div class="f-group">
             <label class="f-label">Email / WhatsApp</label>
-            <input type="text" class="f-input" placeholder="your@email.com or +880...">
+            <input id="f-contact" type="text" class="f-input" placeholder="your@email.com or +880...">
           </div>
           <div class="f-group">
             <label class="f-label">What do you want to automate?</label>
-            <textarea class="f-textarea" placeholder="e.g. I want to automate my Facebook inbox..."></textarea>
+            <textarea id="f-msg" class="f-textarea" placeholder="e.g. I want to automate my Facebook inbox..."></textarea>
           </div>
-          <button class="btn btn-fill" style="width:100%;justify-content:center;" onclick="alert('Message sent! I\'ll get back to you soon.')">
+          <button class="btn btn-fill" style="width:100%;justify-content:center;" onclick="sendToTelegram()">
             Send Message →
           </button>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<script>
+async function sendToTelegram() {
+  var name    = document.getElementById('f-name').value.trim();
+  var contact = document.getElementById('f-contact').value.trim();
+  var msg     = document.getElementById('f-msg').value.trim();
+
+  if (!name || !msg) {
+    alert('Please fill in your name and message.');
+    return;
+  }
+
+  var text = "📩 New Message from Portfolio\n\n"
+           + "👤 Name: " + name + "\n"
+           + "📞 Contact: " + (contact || "Not provided") + "\n"
+           + "💬 Message: " + msg;
+
+  var token  = "8484770634:AAFtkFrWjEh5MJL2pYhqtUQdQQSWXqrVWFM";
+  var chatId = "7825526892";
+  var url    = "https://api.telegram.org/bot" + token + "/sendMessage";
+
+  try {
+    var res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text: text })
+    });
+    var data = await res.json();
+    if (data.ok) {
+      alert("✅ Message sent! I'll get back to you soon.");
+      document.getElementById('f-name').value = '';
+      document.getElementById('f-contact').value = '';
+      document.getElementById('f-msg').value = '';
+    } else {
+      alert("❌ Failed to send. Please contact me directly on WhatsApp.");
+    }
+  } catch(e) {
+    alert("❌ Error. Please contact me directly on WhatsApp.");
+  }
+}
+</script>
 </section>
 
 <!-- FOOTER -->
