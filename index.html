@@ -85,10 +85,7 @@
     border-bottom: 1px solid var(--border);
     margin-top: 62px;
   }
-  .marquee-track {
-    display: flex; white-space: nowrap;
-    animation: mscroll 24s linear infinite;
-  }
+  .marquee-track { display: flex; white-space: nowrap; animation: mscroll 24s linear infinite; }
   .m-item {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: var(--fm); font-size: 0.7rem;
@@ -105,43 +102,38 @@
     color: var(--accent); letter-spacing: 0.15em;
     text-transform: uppercase; margin-bottom: 0.75rem;
   }
-
   .sec-title {
-    font-family: var(--fh);
-    font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+    font-family: var(--fh); font-size: clamp(1.9rem, 3.8vw, 2.8rem);
     font-weight: 900; letter-spacing: -0.01em;
     line-height: 1.1; margin-bottom: 0.9rem; color: #f0f6ff;
   }
-
   .sec-desc {
     font-size: 0.98rem; color: var(--dim);
-    max-width: 540px; line-height: 1.85;
-    margin-bottom: 3.5rem; font-weight: 400;
+    max-width: 540px; line-height: 1.85; margin-bottom: 3.5rem; font-weight: 400;
   }
 
+  /* ── ABOUT ── */
   #about { background: var(--bg2); }
-
   .about-grid {
     display: grid; grid-template-columns: 300px 1fr;
     gap: 4.5rem; align-items: center;
   }
 
+  /* Photo box — no placeholder, just the image */
   .about-photo {
     width: 100%; aspect-ratio: 4/5;
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 4px; overflow: hidden; position: relative;
-    display: flex; align-items: center; justify-content: center;
   }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo-ph {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 0.8rem; color: var(--muted); font-family: var(--fm); font-size: 0.7rem;
-    letter-spacing: 0.05em; text-align: center; padding: 2rem; line-height: 1.7;
+  .about-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top; /* show face, not feet */
+    display: block;
   }
-  .photo-ph .ico { font-size: 3.5rem; opacity: 0.2; }
   .about-photo::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(7,9,14,0.5) 100%);
+    background: linear-gradient(180deg, transparent 60%, rgba(7,9,14,0.45) 100%);
     pointer-events: none;
   }
   .about-bar {
@@ -172,6 +164,7 @@
     color: var(--dim); border-radius: 2px; letter-spacing: 0.04em;
   }
 
+  /* ── PORTFOLIO ── */
   #work {}
   .work-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -190,12 +183,10 @@
   .work-card:hover::after { transform: scaleX(1); }
   .work-num { font-family: var(--fm); font-size: 0.63rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 0.85rem; }
   .work-emoji { font-size: 1.6rem; margin-bottom: 0.85rem; line-height: 1; }
-  .work-card h3 {
-    font-family: var(--fh); font-size: 1rem; font-weight: 700;
-    margin-bottom: 0.6rem; letter-spacing: -0.01em; line-height: 1.35; color: #f0f6ff;
-  }
+  .work-card h3 { font-family: var(--fh); font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; line-height: 1.35; color: #f0f6ff; }
   .work-card p { font-size: 0.86rem; color: var(--dim); line-height: 1.78; font-weight: 400; }
 
+  /* ── SERVICES ── */
   #services { background: var(--bg2); }
   .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
   .svc-card {
@@ -216,18 +207,12 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 1.1rem; margin-bottom: 1.2rem;
   }
-  .svc-card h3 {
-    font-family: var(--fh); font-size: 1.05rem; font-weight: 700;
-    margin-bottom: 0.6rem; letter-spacing: -0.01em; line-height: 1.35; color: #f0f6ff;
-  }
+  .svc-card h3 { font-family: var(--fh); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; line-height: 1.35; color: #f0f6ff; }
   .svc-card p { font-size: 0.88rem; color: var(--dim); line-height: 1.8; margin-bottom: 1.1rem; font-weight: 400; }
   .stags { display: flex; flex-wrap: wrap; gap: 0.38rem; }
-  .stag {
-    font-family: var(--fm); font-size: 0.65rem; color: var(--muted);
-    background: var(--bg2); border: 1px solid var(--border);
-    padding: 0.17rem 0.58rem; border-radius: 2px; letter-spacing: 0.04em;
-  }
+  .stag { font-family: var(--fm); font-size: 0.65rem; color: var(--muted); background: var(--bg2); border: 1px solid var(--border); padding: 0.17rem 0.58rem; border-radius: 2px; letter-spacing: 0.04em; }
 
+  /* ── CASE STUDIES ── */
   #cases {}
   .case-list { display: flex; flex-direction: column; gap: 1.2rem; }
   .case-card {
@@ -246,76 +231,43 @@
   .case-card:hover { border-color: rgba(0,229,255,0.25); transform: translateX(5px); }
   .case-card:hover::before { opacity: 1; }
   .case-n { font-family: var(--fm); font-size: 0.67rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.55rem; }
-  .case-card h3 {
-    font-family: var(--fh); font-size: 1.2rem; font-weight: 800;
-    margin-bottom: 0.55rem; letter-spacing: -0.01em; color: #f0f6ff;
-  }
+  .case-card h3 { font-family: var(--fh); font-size: 1.2rem; font-weight: 800; margin-bottom: 0.55rem; letter-spacing: -0.01em; color: #f0f6ff; }
   .case-card p { font-size: 0.89rem; color: var(--dim); line-height: 1.82; margin-bottom: 1.2rem; font-weight: 400; }
   .case-results { display: flex; gap: 2rem; flex-wrap: wrap; }
   .cr { display: flex; flex-direction: column; }
   .cr-val { font-family: var(--fh); font-size: 1.5rem; font-weight: 900; color: var(--accent3); line-height: 1; }
   .cr-lbl { font-family: var(--fm); font-size: 0.67rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.2rem; }
-  .case-pill {
-    font-family: var(--fm); font-size: 0.68rem; color: var(--accent);
-    background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.18);
-    padding: 0.35rem 0.88rem; border-radius: 2px;
-    white-space: nowrap; letter-spacing: 0.05em; align-self: flex-start;
-  }
+  .case-pill { font-family: var(--fm); font-size: 0.68rem; color: var(--accent); background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.18); padding: 0.35rem 0.88rem; border-radius: 2px; white-space: nowrap; letter-spacing: 0.05em; align-self: flex-start; }
   .ctags { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 1rem; }
 
+  /* ── REVIEWS ── */
   #reviews { background: var(--bg2); }
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-  .rev-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 4px; padding: 1.75rem 1.9rem; transition: border-color 0.3s;
-  }
+  .rev-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem 1.9rem; transition: border-color 0.3s; }
   .rev-card:hover { border-color: rgba(0,229,255,0.2); }
   .quote { font-family: var(--fh); font-size: 2.8rem; font-weight: 900; color: var(--accent); opacity: 0.25; line-height: 1; margin-bottom: 0.4rem; }
   .rev-text { font-size: 0.87rem; color: var(--dim); line-height: 1.82; font-style: italic; margin-bottom: 1.5rem; font-weight: 400; }
   .rev-author { display: flex; align-items: center; gap: 0.75rem; }
-  .rev-av {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--fh); font-weight: 900; font-size: 0.78rem;
-    color: #07090e; flex-shrink: 0;
-  }
+  .rev-av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 900; font-size: 0.78rem; color: #07090e; flex-shrink: 0; }
   .rev-name { font-family: var(--fh); font-size: 0.9rem; font-weight: 700; color: #f0f6ff; }
   .rev-role { font-family: var(--fm); font-size: 0.67rem; color: var(--muted); letter-spacing: 0.04em; }
 
+  /* ── CONTACT ── */
   #contact {}
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .contact-left h2 {
-    font-family: var(--fh); font-size: clamp(1.7rem, 3vw, 2.5rem);
-    font-weight: 900; letter-spacing: -0.01em;
-    line-height: 1.15; margin-bottom: 1.1rem; color: #f0f6ff;
-  }
+  .contact-left h2 { font-family: var(--fh); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 1.1rem; color: #f0f6ff; }
   .contact-left p { font-size: 0.96rem; color: var(--dim); line-height: 1.85; margin-bottom: 2rem; font-weight: 400; }
   .c-links { display: flex; flex-direction: column; gap: 0.6rem; }
-  .c-link {
-    display: flex; align-items: center; gap: 0.8rem;
-    font-family: var(--fm); font-size: 0.78rem; color: var(--dim); text-decoration: none;
-    padding: 0.72rem 1rem; border: 1px solid var(--border); border-radius: 2px;
-    transition: all 0.2s; letter-spacing: 0.04em;
-  }
+  .c-link { display: flex; align-items: center; gap: 0.8rem; font-family: var(--fm); font-size: 0.78rem; color: var(--dim); text-decoration: none; padding: 0.72rem 1rem; border: 1px solid var(--border); border-radius: 2px; transition: all 0.2s; letter-spacing: 0.04em; }
   .c-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,255,0.04); transform: translateX(5px); }
   .c-form { display: flex; flex-direction: column; gap: 1rem; }
   .f-group { display: flex; flex-direction: column; gap: 0.35rem; }
   .f-label { font-family: var(--fm); font-size: 0.67rem; color: var(--muted); letter-spacing: 0.09em; text-transform: uppercase; }
-  .f-input, .f-textarea {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
-    padding: 0.8rem 1rem; color: var(--text); font-family: var(--fb);
-    font-size: 0.92rem; outline: none; width: 100%; transition: border-color 0.2s;
-  }
+  .f-input, .f-textarea { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.8rem 1rem; color: var(--text); font-family: var(--fb); font-size: 0.92rem; outline: none; width: 100%; transition: border-color 0.2s; }
   .f-input:focus, .f-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,229,255,0.07); }
   .f-textarea { resize: vertical; min-height: 120px; }
 
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: var(--fh); font-weight: 700; font-size: 0.9rem;
-    padding: 0.82rem 1.8rem; border-radius: 2px;
-    text-decoration: none; transition: all 0.22s; cursor: pointer; border: none;
-  }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--fh); font-weight: 700; font-size: 0.9rem; padding: 0.82rem 1.8rem; border-radius: 2px; text-decoration: none; transition: all 0.22s; cursor: pointer; border: none; }
   .btn-fill { background: var(--accent); color: #07090e; }
   .btn-fill:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 0 32px rgba(0,229,255,0.4); }
 
@@ -337,9 +289,7 @@
     .nav-links { display: none; }
     .case-card { grid-template-columns: 1fr; }
   }
-  @media (max-width: 540px) {
-    .work-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 540px) { .work-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -391,14 +341,10 @@
   <div class="container">
     <div class="about-grid">
 
+      <!-- Photo — placeholder সরানো হয়েছে, শুধু img -->
       <div class="reveal">
         <div class="about-photo">
-          <!-- আপনার ছবি যোগ করতে নিচের লাইনটা uncomment করুন -->
           <img src="Abdus Sami AI Automation Expert.png" alt="Abdus Sami">
-          <div class="photo-ph">
-            <span class="ico">👤</span>
-            <span>Your photo here<br><code style="font-size:0.62rem;opacity:0.5">photo.jpg</code></span>
-          </div>
           <div class="about-bar"></div>
           <div class="about-lbl">n8n Specialist · BD</div>
         </div>
@@ -493,55 +439,38 @@
     <h2 class="sec-title reveal">What I Offer</h2>
     <p class="sec-desc reveal">Four core services — each one solves a specific bottleneck in your business.</p>
     <div class="services-grid">
-
       <div class="svc-card reveal">
         <div class="svc-icon">💙</div>
         <h3>Messenger Inbox &amp; Facebook Comment Automation</h3>
         <p>I set up automatic replies for incoming customer messages in your Facebook Page Messenger. Combined with keyword-based comment auto-replies and spam filtering on your posts — you never have to be glued to your phone again.</p>
         <div class="stags">
-          <span class="stag">Facebook API</span>
-          <span class="stag">Messenger Bot</span>
-          <span class="stag">Comment Reply</span>
-          <span class="stag">n8n</span>
+          <span class="stag">Facebook API</span><span class="stag">Messenger Bot</span><span class="stag">Comment Reply</span><span class="stag">n8n</span>
         </div>
       </div>
-
       <div class="svc-card reveal">
         <div class="svc-icon">📷</div>
         <h3>Instagram Inbox &amp; Comment Automation</h3>
         <p>Automatically handles incoming Instagram DMs, captures leads, and sends keyword-triggered replies on posts and reels. Your engagement improves and zero leads slip through the cracks.</p>
         <div class="stags">
-          <span class="stag">Instagram API</span>
-          <span class="stag">DM Automation</span>
-          <span class="stag">Lead Capture</span>
-          <span class="stag">n8n</span>
+          <span class="stag">Instagram API</span><span class="stag">DM Automation</span><span class="stag">Lead Capture</span><span class="stag">n8n</span>
         </div>
       </div>
-
       <div class="svc-card reveal">
         <div class="svc-icon">💚</div>
         <h3>WhatsApp Inbox Automation</h3>
         <p>Auto-reply to incoming WhatsApp Business messages, send order notifications, delivery updates, and handle FAQs — all automatically. Your customer service runs 24/7 with zero human involvement.</p>
         <div class="stags">
-          <span class="stag">WhatsApp API</span>
-          <span class="stag">Auto-Reply</span>
-          <span class="stag">Order Notify</span>
-          <span class="stag">n8n</span>
+          <span class="stag">WhatsApp API</span><span class="stag">Auto-Reply</span><span class="stag">Order Notify</span><span class="stag">n8n</span>
         </div>
       </div>
-
       <div class="svc-card reveal">
         <div class="svc-icon">🖼️</div>
         <h3>AI Product Image Generator</h3>
         <p>Give me your regular product photo — my automation turns it into a professional, marketing-ready image with improved background, lighting, and branding. No photographer. No editing. Fully automated.</p>
         <div class="stags">
-          <span class="stag">AI Image Gen</span>
-          <span class="stag">OpenAI</span>
-          <span class="stag">Background AI</span>
-          <span class="stag">n8n</span>
+          <span class="stag">AI Image Gen</span><span class="stag">OpenAI</span><span class="stag">Background AI</span><span class="stag">n8n</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -553,7 +482,6 @@
     <h2 class="sec-title reveal">Real Work, Real Results</h2>
     <p class="sec-desc reveal">A closer look at past projects — the problem, the solution, and the outcome.</p>
     <div class="case-list">
-
       <div class="case-card reveal">
         <div>
           <div class="case-n">CASE STUDY — 01</div>
@@ -564,13 +492,10 @@
             <div class="cr"><span class="cr-val">3h</span><span class="cr-lbl">Saved / Day</span></div>
             <div class="cr"><span class="cr-val">2x</span><span class="cr-lbl">Response Speed</span></div>
           </div>
-          <div class="ctags">
-            <span class="stag">Facebook API</span><span class="stag">n8n</span><span class="stag">Google Sheets</span>
-          </div>
+          <div class="ctags"><span class="stag">Facebook API</span><span class="stag">n8n</span><span class="stag">Google Sheets</span></div>
         </div>
         <span class="case-pill">Completed ✓</span>
       </div>
-
       <div class="case-card reveal">
         <div>
           <div class="case-n">CASE STUDY — 02</div>
@@ -581,13 +506,10 @@
             <div class="cr"><span class="cr-val">5 min</span><span class="cr-lbl">Per Image</span></div>
             <div class="cr"><span class="cr-val">100+</span><span class="cr-lbl">Images / Month</span></div>
           </div>
-          <div class="ctags">
-            <span class="stag">OpenAI</span><span class="stag">n8n</span><span class="stag">Image Generation</span>
-          </div>
+          <div class="ctags"><span class="stag">OpenAI</span><span class="stag">n8n</span><span class="stag">Image Generation</span></div>
         </div>
         <span class="case-pill">Completed ✓</span>
       </div>
-
       <div class="case-card reveal">
         <div>
           <div class="case-n">CASE STUDY — 03</div>
@@ -597,13 +519,10 @@
             <div class="cr"><span class="cr-val">0</span><span class="cr-lbl">Missed Leads</span></div>
             <div class="cr"><span class="cr-val">3x</span><span class="cr-lbl">More Conversions</span></div>
           </div>
-          <div class="ctags">
-            <span class="stag">Instagram API</span><span class="stag">n8n</span><span class="stag">Telegram</span><span class="stag">Google Sheets</span>
-          </div>
+          <div class="ctags"><span class="stag">Instagram API</span><span class="stag">n8n</span><span class="stag">Telegram</span><span class="stag">Google Sheets</span></div>
         </div>
         <span class="case-pill">Completed ✓</span>
       </div>
-
     </div>
   </div>
 </section>
